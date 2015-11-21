@@ -2,9 +2,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Dimandus on 21.11.2015.
- */
 public class ParserTest {
 
     @Test
