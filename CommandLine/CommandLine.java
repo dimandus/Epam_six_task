@@ -10,4 +10,9 @@ public class CommandLine {
 
         return operation.apply(parser.getLeft(),parser.getRight());
     }
+
+    public static void main(String[] args) throws ParseException {
+
+        System.out.println(calculate(args));
+    }
 }
