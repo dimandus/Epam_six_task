@@ -4,11 +4,10 @@ import org.apache.commons.cli.*;
 public class CommandLine {
 
     public static int calculate(String[] args) throws ParseException {
-        int res = 0;
 
+        Parser parser = new Parser(args);
+        Operation operation = parser.getOperation();
 
-
-        return res;
+        return operation.apply(parser.getLeft(),parser.getRight());
     }
-
 }

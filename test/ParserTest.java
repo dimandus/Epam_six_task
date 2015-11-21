@@ -11,8 +11,8 @@ public class ParserTest {
 
         Parser parser = new Parser(input.split(" "));
 
-        assertEquals(2,parser.getLeft());
-        assertEquals(3,parser.getRight());
-        assertEquals("+",parser.getOperation());
+        assertEquals(2, parser.getLeft());
+        assertEquals(3, parser.getRight());
+        assertEquals("+", parser.getOperation().toString());
     }
 }

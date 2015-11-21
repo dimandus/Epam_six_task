@@ -1,9 +1,11 @@
 import org.apache.commons.cli.*;
 
+import java.util.Objects;
+
 class Parser {
     private int left;
     private int right;
-    private String operation;
+    private Operation operation;
 
     public Parser(String[] args) throws ParseException {
         Options clOptions = new Options();
@@ -28,9 +30,9 @@ class Parser {
         CommandLineParser cmdLinePosixParser = new DefaultParser();
         org.apache.commons.cli.CommandLine commandLine = cmdLinePosixParser.parse(clOptions, args);
 
-        left = Integer.decode( commandLine.getOptionValue("l"));
-        right = Integer.decode( commandLine.getOptionValue("r"));
-        operation = commandLine.getOptionValue("o");
+        left = Integer.decode(commandLine.getOptionValue("l"));
+        right = Integer.decode(commandLine.getOptionValue("r"));
+        operation = chooseOperation(commandLine.getOptionValue("o"));
     }
 
     public int getLeft() {
@@ -41,7 +43,20 @@ class Parser {
         return right;
     }
 
-    public String getOperation() {
+    public Operation getOperation() {
         return operation;
+    }
+
+    private Operation chooseOperation(String source) {
+        if (Objects.equals(source, "+"))
+            return new Add();
+        if (Objects.equals(source, "-"))
+            return new Deduct();
+        if (Objects.equals(source, "*"))
+            return new Multiply();
+        if (Objects.equals(source, "/"))
+            return new Divide();
+
+        return null;
     }
 }

@@ -3,4 +3,9 @@ public class Deduct implements Operation {
     public int apply(int left, int right) {
         return left-right;
     }
+
+    @Override
+    public String toString() {
+        return "-";
+    }
 }
