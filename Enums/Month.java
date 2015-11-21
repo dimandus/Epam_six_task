@@ -22,4 +22,8 @@ public enum Month {
         int enumSize = values().length;
         return values()[(ordinal() + enumSize + 1) % enumSize];
     }
+
+    public int getDayCount() {
+        return dayCount;
+    }
 }
