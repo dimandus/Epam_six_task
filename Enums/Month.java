@@ -1,4 +1,4 @@
-public enum Months {
+public enum Month {
     JANUARY(31),
     FEBRUARY(28),
     MARCH(31),
@@ -14,11 +14,11 @@ public enum Months {
 
     private final int dayCount;
 
-    private Months(int dayCount) {
+    private Month(int dayCount) {
         this.dayCount = dayCount;
     }
 
-    public Months nextMonth() {
+    public Month nextMonth() {
         int enumSize = values().length;
         return values()[(ordinal() + enumSize + 1) % enumSize];
     }
